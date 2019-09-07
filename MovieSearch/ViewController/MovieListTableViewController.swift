@@ -11,6 +11,17 @@ class MovieListTableViewController: UITableViewController {
     // MARK: - Properties
     
     private var movies: [Movie] = [] {
+        willSet {
+            DispatchQueue.main.async {
+                if newValue.isEmpty {
+                    self.tableView.backgroundView = NoResultsView(frame: UIScreen.main.bounds)
+                    UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: self.tableView.backgroundView)
+                } else {
+                    self.tableView.backgroundView = UIView()
+                    UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: "New search results displayed")
+                }
+            }
+        }
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
@@ -24,8 +35,8 @@ class MovieListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.tableFooterView = UIView()
-        self.tableView.rowHeight = 400
-        self.tableView.estimatedRowHeight = UITableView.automaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 200
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,13 +48,6 @@ class MovieListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.movies.isEmpty {
-            self.tableView.backgroundView = NoResultsView(frame: UIScreen.main.bounds)
-            UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: self.tableView.backgroundView)
-        } else {
-            self.tableView.backgroundView = UIView()
-            UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: "New search results displayed")
-        }
         return self.movies.count
     }
 
@@ -54,6 +58,7 @@ class MovieListTableViewController: UITableViewController {
         cell.titleLabel.text = movie.title
         cell.overviewLabel.text = movie.overview
         cell.posterImageView.loadPoster(for: movie)
+        cell.isAccessibilityElement = true
         cell.accessibilityLabel = movie.title
         cell.accessibilityHint = movie.overview
         return cell
@@ -62,8 +67,14 @@ class MovieListTableViewController: UITableViewController {
     // MARK: - Helper functions
     
     private func search(for searchTerm: String) {
-        MovieController().fetchMovies(with: searchTerm) { [weak self] movies in
-            self?.movies = movies
+        MovieService().fetchMovies(with: searchTerm) { [weak self] (result: Result<[Movie], APIServiceError>) in
+            switch result {
+            case .success(let movies):
+                self?.movies = movies
+            case .failure(let error):
+                self?.movies = []
+                print(error)
+            }
         }
     }
 }

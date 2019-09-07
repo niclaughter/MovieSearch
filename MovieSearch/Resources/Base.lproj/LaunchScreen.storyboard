@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,19 +24,19 @@
                                     <constraint firstAttribute="width" constant="74" id="mdn-VH-RWM"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-birb" translatesAutoresizingMaskIntoConstraints="NO" id="xad-gV-zuM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-bird" translatesAutoresizingMaskIntoConstraints="NO" id="Mpm-GU-kVT">
                                 <rect key="frame" x="157" y="398" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Z8O-Vq-Inu"/>
-                                    <constraint firstAttribute="width" constant="100" id="o79-rg-hOj"/>
+                                    <constraint firstAttribute="width" constant="100" id="VVJ-Pq-DP9"/>
+                                    <constraint firstAttribute="height" constant="100" id="rLN-5V-yjD"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5mf-65-fln" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Qep-qA-Jg0"/>
-                            <constraint firstItem="xad-gV-zuM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="l4K-Vm-Arj"/>
-                            <constraint firstItem="xad-gV-zuM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="r2t-0y-yik"/>
+                            <constraint firstItem="Mpm-GU-kVT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="m4w-E7-Ut7"/>
+                            <constraint firstItem="Mpm-GU-kVT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mx5-7J-5Vv"/>
                             <constraint firstItem="5mf-65-fln" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yYp-DV-WcR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -50,6 +48,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="loading-birb" width="512" height="512"/>
+        <image name="loading-bird" width="512" height="512"/>
     </resources>
 </document>

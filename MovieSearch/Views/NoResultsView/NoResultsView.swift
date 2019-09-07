@@ -8,11 +8,7 @@ import UIKit
 
 // Even though I'm not utilizing any of the designable tools here, I'm simply adopting this protocol for simplicity of using the nib.
 
-class NoResultsView: UIView, DesignableNib {
-    
-    // MARK: - Properties
-    
-    public static var nibName: String = "NoResultsView"
+class NoResultsView: UIView {
     
     // MARK: - Super class overrides
 

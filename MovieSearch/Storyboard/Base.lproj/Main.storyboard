@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie List Container View Controller-->
+        <!--Splash View Controller-->
         <scene sceneID="NEj-my-jpn">
             <objects>
-                <viewController id="L4T-fD-Kic" customClass="MovieListContainerViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="L4T-fD-Kic" customClass="SplashViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tSG-sR-xS6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                     <segue destination="4OX-an-LMj" kind="embed" id="lwt-t1-rLC"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lul-Jy-v8b" customClass="LoadingBirbView" customModule="MovieSearch" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lul-Jy-v8b" customClass="SplashAnimationView" customModule="MovieSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="-44" width="414" height="974"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -41,7 +41,7 @@
                         <viewLayoutGuide key="safeArea" id="24o-Iv-x0X"/>
                     </view>
                     <connections>
-                        <outlet property="loadingBirbView" destination="Lul-Jy-v8b" id="8LX-8d-Mi9"/>
+                        <outlet property="splashAnimationView" destination="Lul-Jy-v8b" id="gbV-Ea-qYj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72N-ju-GlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -74,6 +74,9 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d13-FF-eNB" customClass="LoadingImageView" customModule="MovieSearch" customModuleProvider="target">
                                             <rect key="frame" x="20" y="11" width="138" height="184"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="184" id="XCK-Zg-8De"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4oz-4M-HCR">
                                             <rect key="frame" x="166" y="11" width="228" height="60"/>
@@ -87,7 +90,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-t8-RqN">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-t8-RqN">
                                             <rect key="frame" x="166" y="79" width="228" height="116"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <bool key="isElement" value="NO"/>
@@ -103,8 +106,8 @@
                                         <constraint firstItem="d13-FF-eNB" firstAttribute="leading" secondItem="X7K-Ai-sa4" secondAttribute="leadingMargin" id="MwO-wd-W82"/>
                                         <constraint firstItem="4oz-4M-HCR" firstAttribute="trailing" secondItem="X7K-Ai-sa4" secondAttribute="trailingMargin" id="RzB-Ki-YdE"/>
                                         <constraint firstItem="4oz-4M-HCR" firstAttribute="leading" secondItem="d13-FF-eNB" secondAttribute="trailing" constant="8" id="UeN-gJ-Rom"/>
+                                        <constraint firstItem="d13-FF-eNB" firstAttribute="bottom" secondItem="TZd-t8-RqN" secondAttribute="bottom" id="XtM-vS-rwQ"/>
                                         <constraint firstItem="TZd-t8-RqN" firstAttribute="top" secondItem="4oz-4M-HCR" secondAttribute="bottom" constant="8" id="eVh-jB-uif"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="d13-FF-eNB" secondAttribute="bottom" id="eo3-kK-LKv"/>
                                         <constraint firstItem="TZd-t8-RqN" firstAttribute="leading" secondItem="d13-FF-eNB" secondAttribute="trailing" constant="8" id="sCp-wo-fXr"/>
                                         <constraint firstItem="TZd-t8-RqN" firstAttribute="trailing" secondItem="X7K-Ai-sa4" secondAttribute="trailingMargin" id="sdG-Os-dYw"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="TZd-t8-RqN" secondAttribute="bottom" id="uMk-mg-ie8"/>

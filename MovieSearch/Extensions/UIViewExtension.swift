@@ -1,16 +1,16 @@
 //
-//  DesignableNib.swift
+//  UIViewExtension.swift
 //  MovieSearch
 //  Copyright © 2019 Nic Laughter. All rights reserved.
 //
 
 import UIKit
 
-public protocol DesignableNib {
+private protocol DesignableNib {
     static var nibName: String { get }
 }
 
-public extension DesignableNib where Self: UIView {
+extension UIView: DesignableNib {
     
     static var nibName: String {
         return String(describing: Self.self) // defaults to the name of the class implementing this protocol.

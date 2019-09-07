@@ -13,15 +13,21 @@ struct Movie: Decodable {
     let title: String
     let overview: String
     let posterPath: String
+
+    // MARK: - Coding Keys
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case overview
+        case posterPath = "poster_path"
+    }
     
     // MARK: - Initializers
-    
-    init?(_ json: JSONDictionary) {
-        guard let title = json["title"] as? String,
-            let overview = json["overview"] as? String,
-            let posterPath = json["poster_path"] as? String else { return nil }
-        self.title = title
-        self.overview = overview
-        self.posterPath = posterPath
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        title = try container.decode(String.self, forKey: .title)
+        overview = try container.decode(String.self, forKey: .overview)
+        posterPath = try container.decode(String.self, forKey: .posterPath)
     }
 }

@@ -13,10 +13,4 @@ class MovieCell: UITableViewCell {
     @IBOutlet var posterImageView: LoadingImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var overviewLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.isAccessibilityElement = true
-    }
 }
