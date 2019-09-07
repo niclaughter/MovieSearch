@@ -6,11 +6,13 @@
 
 import UIKit
 
-private protocol DesignableNib {
+protocol DesignableNib {
     static var nibName: String { get }
 }
 
-extension UIView: DesignableNib {
+extension UIView: DesignableNib { }
+
+extension DesignableNib where Self: UIView {
     
     static var nibName: String {
         return String(describing: Self.self) // defaults to the name of the class implementing this protocol.

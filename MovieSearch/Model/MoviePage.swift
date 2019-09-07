@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MoviePage: Decodable {
+struct MoviePage: Codable {
 
     let page: Int
     let movies: [Movie]
@@ -17,10 +17,5 @@ struct MoviePage: Decodable {
         case page
         case movies = "results"
     }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        page = try container.decode(Int.self, forKey: .page)
-        movies = try container.decode([Movie].self, forKey: .movies)
-    }
+    
 }
