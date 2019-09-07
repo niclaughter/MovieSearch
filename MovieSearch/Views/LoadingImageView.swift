@@ -43,7 +43,7 @@ class LoadingImageView: UIImageView {
                         self.image = image
                         imageCache.setObject(image, forKey: url as AnyObject)
                     case .failure(let error):
-                        print(error.localizedDescription)
+                        print(error)
                 }
                 self?.activityIndicator.stopAnimating()
             }
