@@ -156,7 +156,7 @@
 		66575B6F22E1822A0001DC16 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FD2CFD2C22E2422D005A2386 /* LoadingBirbView */,
+				FD2CFD2C22E2422D005A2386 /* SplashAnimationView */,
 				FD2CFD3522E26512005A2386 /* NoResultsView */,
 				FD2CFD3F22E2ABD4005A2386 /* LoadingImageView.swift */,
 				66575B7622E183640001DC16 /* MovieCell.swift */,
@@ -183,13 +183,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		FD2CFD2C22E2422D005A2386 /* LoadingBirbView */ = {
+		FD2CFD2C22E2422D005A2386 /* SplashAnimationView */ = {
 			isa = PBXGroup;
 			children = (
 				FD2CFD2822E24218005A2386 /* SplashAnimationView.swift */,
 				FD2CFD2A22E24227005A2386 /* SplashAnimationView.xib */,
 			);
-			path = LoadingBirbView;
+			path = SplashAnimationView;
 			sourceTree = "<group>";
 		};
 		FD2CFD3522E26512005A2386 /* NoResultsView */ = {
