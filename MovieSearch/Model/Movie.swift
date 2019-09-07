@@ -6,13 +6,16 @@
 
 import Foundation
 
-struct Movie: Decodable {
-    
+struct Movie: Codable {
+
+    // TODO: marks are good, but not always necessary.
+    // especially on simple structs, the marks not necessary and don't add any value
+
     // MARK: - Properties
     
     let title: String
     let overview: String
-    let posterPath: String
+    let posterPath: String?
 
     // MARK: - Coding Keys
 
@@ -21,13 +24,7 @@ struct Movie: Decodable {
         case overview
         case posterPath = "poster_path"
     }
-    
-    // MARK: - Initializers
 
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        title = try container.decode(String.self, forKey: .title)
-        overview = try container.decode(String.self, forKey: .overview)
-        posterPath = try container.decode(String.self, forKey: .posterPath)
-    }
+    //TODO: discuss inititalizers. They are not necessary when using Codable
+    
 }
