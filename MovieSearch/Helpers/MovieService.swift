@@ -7,7 +7,9 @@
 import Foundation
 
 class MovieService {
-    
+
+    static let basePosterURL = "https://image.tmdb.org/t/p/w600_and_h900_bestv2"
+
     // MARK: - Properties
     
     // Normally I would put these somewhere more centralized and taken the time to name them more appropriately
@@ -34,6 +36,7 @@ class MovieService {
                     let moviePage = try JSONDecoder().decode(MoviePage.self, from: data)
                     completion(.success(moviePage.movies))
                 } catch {
+                    print(error)
                     completion(.failure(.decodeError))
                 }
             case .failure(let error):
